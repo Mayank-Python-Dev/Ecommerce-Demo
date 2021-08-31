@@ -1,0 +1,79 @@
+{% extends 'ECOM/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<br>
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="orders-pending">
+			  	<div class="card-header">
+			  		{% if messages %}
+			  		{% for message in messages %}
+			  		<h5 class="card-title {{ message.tags }}" style="color:black;">{{message}}</h5>
+			  		{% endfor %}
+			  		{% endif %}
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title"></h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid mt-5 setWidth ">
+	<div class="jumbotron">
+<div class="row">
+	<div class="col-md-4">
+		<h5>Create Customer</h5>
+		<hr>
+		<div class="card-body">
+    <form method = "POST">
+    	{% csrf_token %}
+    	{{form|crispy}}
+    	<br>
+    	<input class="btn float-right btn-outline-secondary col-lg-12" type=submit value="Save" />
+    </form>
+    <br>
+  </div>
+	</div>
+	<div class="col-md-8">
+		<h5>CUSTOMERS</h5>
+		<hr>
+		<div class="card card-body">
+			
+			<table class="table table-sm">
+				
+				<tr>
+					<th>Customer Name</th>
+					<th>Email</th>
+					<th>Phone</th>
+					<th>Address</th>
+					<th>Date</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+				{% for customer in getAllCustomer %}
+				<tr>
+					<td>{{customer.name}}</td>
+					<td>{{customer.email}}</td>
+					<td>{{customer.phone}}</td>
+					<td>{{customer.address}}</td>
+					<td>{{customer.date}}</td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'updateCustomer' customer.id %}">Update</a></td>
+
+						<td><a class="btn btn-sm btn-danger" href="{% url 'deleteCustomer' customer.id %}">Delete</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+</div>
+</div>	
+</div>
+
+
+
+
+{% endblock %}

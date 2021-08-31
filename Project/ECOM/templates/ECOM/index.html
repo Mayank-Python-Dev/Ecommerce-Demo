@@ -1,0 +1,81 @@
+{% extends 'ECOM/base.html' %}
+{% load static %}
+{% block content %}
+<!-- <div class="container mt-5">
+	<div class="jumbotron">
+	
+	<p>In the fashion industry, originality is everything. It can’t come as much of a surprise to find that the fashion industry has produced many inventive approaches to the problem of counterfeiting. These brands have stepped beyond the process of searching and reporting fakes, implementing brilliant, proactive measures to take control of the counterfeit fashion industry issue.</p>
+</div>
+</div> -->
+
+
+
+<div id="carouselExampleDark" class="carousel carousel-light slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleLight" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleLight" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleLight" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="{% static 'images/keagan-henman-xPJYL0l5Ii8-unsplash.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color: white;">Introduction</h5>
+        <p style="color: white;">The fashion eCommerce industry is an industry that has always proudly worn change like a model would wear Prada. Change is a key part of the fashion industry’s identity, occurring at almost every seasonal fashion show year on year. However, the year ahead may bring about the industry’s most drastic transformation yet.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{% static 'images/charles.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color: white;">Introduction</h5>
+        <p style="color: white;">The fashion eCommerce industry is an industry that has always proudly worn change like a model would wear Prada. Change is a key part of the fashion industry’s identity, occurring at almost every seasonal fashion show year on year. However, the year ahead may bring about the industry’s most drastic transformation yet.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/mobile.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color: white;">Introduction</h5>
+        <p style="color: white;">The fashion eCommerce industry is an industry that has always proudly worn change like a model would wear Prada. Change is a key part of the fashion industry’s identity, occurring at almost every seasonal fashion show year on year. However, the year ahead may bring about the industry’s most drastic transformation yet.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>  
+
+
+
+
+
+
+
+<div class="container mt-5">
+  <div class="jumbotron">
+    <div class="row">
+  {% for product in getAllProduct %}
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+  <img src="{{product.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{product.name}}</h5>
+    <p class="card-text">{{product.description}}</p>
+    <p class="card-text">Price : {{product.price}}</p>
+    <a href="{% url 'cart' product.id %}" class="btn btn-primary">Add to Cart</a>
+    <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Details</a>
+  </div>
+</div>
+    </div>
+{% endfor %}
+ </div>
+</div>  
+</div>
+
+
+
+{% endblock %}

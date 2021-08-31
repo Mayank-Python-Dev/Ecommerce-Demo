@@ -1,0 +1,19 @@
+{% extends 'ECOM/base.html' %}
+
+{% block content %}
+
+<div class="container mt-5 bg-success p-2" style="--bs-bg-opacity: .5;">
+	<div class="jumbotron">
+<div class="card border-success mb-3" style="max-width: 58rem;">
+  <div class="card-header bg-transparent border-success">{{getProduct.name}}</div>
+  <div class="card-body text-success">
+    <h5 class="card-title">DESCRIPTION</h5>
+    <p class="card-text">{{getProduct.description}}</p>
+  </div>
+  <div class="card-footer bg-transparent border-success">Price : {{getProduct.price}}</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}
