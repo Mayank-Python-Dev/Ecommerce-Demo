@@ -1,0 +1,22 @@
+{% extends 'ECOM/base.html' %}
+
+
+{% block content %}
+
+<h1>Redirecting you to the paytm ........</h1>
+
+<form action="https://securegw-stage.paytm.in/theia/processTransaction" method="post" name = "paytm">
+	
+	{% for x,y in param_dict.items %}
+
+	<input type="hidden" name="{{x}}" value="{{y}}">
+
+	{% endfor %}
+</form>
+
+
+<script>
+	document.paytm.submit()
+</script>
+
+{% endblock %}

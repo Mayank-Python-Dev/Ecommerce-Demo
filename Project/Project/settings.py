@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ECOM',
     'crispy_forms',
+    'rest_framework',
+    'pytest',
 ]
 
 MIDDLEWARE = [
@@ -75,10 +77,21 @@ WSGI_APPLICATION = 'Project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'Project/db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'Project/db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tailnode',
+        'USER': 'root',
+        'PASSWORD': 'root@12345',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 

@@ -1,0 +1,42 @@
+{% extends 'ECOM/base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+	<div class="col-md-12">
+		<h1>PAYMENT STATUS OF YOUR ORDER ID {{response.ORDERID}}</h1>
+		<p></p>
+		{% if response.RESPCODE == '01' %}
+		<p style="text-align: right">ORDER IS SUCCESSFUL</p>
+		{% else %}
+		<p>ORDER FAILED</p>
+		{% endif %}
+	</div>
+</div>
+
+<br>
+
+<div class="container">
+<div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3">
+			  	<div class="card-header">
+			  		<h5 class="card-title" style="color:black;">RESPONSE</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title" style="color:black;">{{response}}</h3>
+			  		
+			  	</div>
+			</div>
+		</div>
+	</div>
+	
+		</div>
+	</div>
+
+	
+
+
+{% endblock %}

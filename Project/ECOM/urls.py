@@ -28,4 +28,16 @@ urlpatterns = [
 
 	path('delete_products/<str:pk>/',views.deleteProducts, name = 'deleteProducts'),
 
+	#PAYMENT
+
+	# path('payment/<str:pk>',views.Payment, name = 'payment'),
+
+	# path('payment_complete',views.paymentComplete,name = 'payment_complete')
+
+	#PAYTM
+
+	path('make_payment/<int:pk>/',views.Paytm,name = 'paytm'),
+
+	path('handle_request/',views.handlePaytmRequest,name = 'handle_request'),
+
 ]

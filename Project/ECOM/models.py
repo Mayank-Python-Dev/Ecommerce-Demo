@@ -50,3 +50,17 @@ class Order(models.Model):
 
 	def __str__(self):
 		return self.status
+
+
+class Transaction(models.Model):
+    name=models.CharField(max_length=500)
+    email=models.CharField(max_length=500)
+    address=models.CharField(max_length=500)
+    city=models.CharField(max_length=500)
+    state=models.CharField(max_length=500)
+    zip_code=models.CharField(max_length=500)
+    phone=models.CharField(max_length=500, default="")
+    amount=models.IntegerField(default=0)
+
+    def __str__(self):
+    	return self.name

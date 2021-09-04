@@ -19,3 +19,9 @@ class ProductsForm(forms.ModelForm):
 	class Meta:
 		model = Products
 		fields = '__all__'
+
+
+class TransactionForm(forms.ModelForm):
+	class Meta:
+		model = Transaction
+		exclude = ['amount']

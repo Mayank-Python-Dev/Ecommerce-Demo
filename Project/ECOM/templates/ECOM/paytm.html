@@ -1,0 +1,34 @@
+{% extends 'ECOM/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+    <div class="col my-4">
+        
+        <div class="my-4">
+            <ul class="list-group" id="items">
+            </ul>
+
+            <nav aria-label="breadcrumb">
+  <ol class="breadcrumb mt-3">
+    <li class="breadcrumb-item active" aria-current="page">Your Cart Total Is <b>Rs.{{getOrder.price}} <span id="totalPrice"></span></b>. Enter your details below & place your order.</li>
+  </ol>
+</nav>
+
+
+
+            
+        </div>
+    </div>
+    <div class="col my-4">
+        <h2>Enter Address & Other Details:</h2>
+        <form method="post" action="">
+            {% csrf_token %}
+            {{form|crispy}}
+            <br>
+            <button type="submit" class="btn btn-primary">Place Order</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
