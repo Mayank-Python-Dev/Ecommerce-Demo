@@ -17,3 +17,5 @@ cmd : python manage.py migrate
 to run the server 
 
 python manage.py runserver
+
+to work with payment gateway you have to pass merchant id and merchant key which is there is developer.paytm.com
