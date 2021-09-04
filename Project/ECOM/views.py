@@ -24,7 +24,7 @@ from rest_framework.response import Response
 
 # Create your views here.
 
-MERCHANT_KEY = 'xR%ql4jl0d4xjuB&'
+MERCHANT_KEY = ''
 
 def index(request):
 	getAllProduct = Products.objects.all()
@@ -187,7 +187,7 @@ def Paytm(request,pk):
 			getForm = form.save(commit=True)
 			getForm.amount = getOrder.price
 			getForm.save()
-			param_dict = {'MID': 'LGeOOV73640639890723','ORDER_ID': str(getForm.id),'TXN_AMOUNT': str(getForm.amount),'CUST_ID': str(getForm.email),'INDUSTRY_TYPE_ID': 'Retail','WEBSITE': 'WEBSTAGING','CHANNEL_ID': 'WEB','CALLBACK_URL':'http://127.0.0.1:8000/handle_request/'}
+			param_dict = {'MID': '','ORDER_ID': str(getForm.id),'TXN_AMOUNT': str(getForm.amount),'CUST_ID': str(getForm.email),'INDUSTRY_TYPE_ID': 'Retail','WEBSITE': 'WEBSTAGING','CHANNEL_ID': 'WEB','CALLBACK_URL':'http://127.0.0.1:8000/handle_request/'}
 			param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict,MERCHANT_KEY)
 			return render(request,'ECOM/final_payment.html',{'param_dict':param_dict})
 
